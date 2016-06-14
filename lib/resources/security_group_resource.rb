@@ -106,11 +106,11 @@ module Serverspec
         find_sg_by_name_tag	
       end
 
-      def having_port_open?(port_number)
+      def has_port_open?(port_number)
 	port_open(port_number)
       end
 
-      def having_port_wide_open?(port_number)
+      def has_port_wide_open?(port_number)
 	open_perm = nil 
         sg_found = content 
 	if sg_found != nil
@@ -129,7 +129,7 @@ module Serverspec
         return open_perm
       end
 
-      def having_ports_closed?(from_port, to_port)
+      def has_ports_closed?(from_port, to_port)
        open_perm = false
        sg_found = content 
        if sg_found != nil
@@ -142,7 +142,7 @@ module Serverspec
        return open_perm
       end
 
-      def having_ports_closed_except?(port_arr)
+      def has_ports_closed_except?(port_arr)
 	isit = Array.new 
 	ports_open_arr = get_open_port_array 
 	port_arr.each do |port|

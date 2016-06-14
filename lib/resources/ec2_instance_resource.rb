@@ -32,7 +32,7 @@ module Serverspec
 	return false 
       end
 
-      def security_group_having_ports?(ports_array)
+      def security_group_has_ports?(ports_array)
 	number_ports_found = 0
         total_ports_open = 0
 	content.describe_security_groups({:group_ids => get_security_groups }).security_groups.each do |item|
@@ -66,19 +66,19 @@ module Serverspec
         content.describe_instances(:instance_ids => [@instance_id]).reservations[0].instances[0].architecture == "i386"
       end
 
-      def having_paravirtual_virtualization?
+      def has_paravirtual_virtualization?
         content.describe_instances(:instance_ids => [@instance_id]).reservations[0].instances[0].virtualization_type == "paravirtua"
       end
 
-      def having_hvm_virtualization?
+      def has_hvm_virtualization?
         content.describe_instances(:instance_ids => [@instance_id]).reservations[0].instances[0].virtualization_type == "hvm"
       end
 
-      def having_xen_hypervisor?
+      def has_xen_hypervisor?
         content.describe_instances(:instance_ids => [@instance_id]).reservations[0].instances[0].hypervisor == 'xen'
       end
 
-      def having_oracle_vm_hypervisor?
+      def has_oracle_vm_hypervisor?
         content.describe_instances(:instance_ids => [@instance_id]).reservations[0].instances[0].hypervisor == 'ovm'
       end
 

@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'serverspec-aws-resources'
+  s.name        = 'serverspec-aws'
   s.version     = '0.0.8'
   s.date        = '2016-01-12'
   s.summary     = 'serverspec resource types to test AWS resources'
